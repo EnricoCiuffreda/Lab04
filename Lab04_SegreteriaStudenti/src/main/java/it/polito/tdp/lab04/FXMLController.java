@@ -101,7 +101,9 @@ public class FXMLController {
     		return;
     	}
     	List<Corso> corsistudente=model.getCorsiStudente(matricola);
-
+    	if(corsistudente.size()==0) {
+    		txtrisultato.appendText("studente non iscritto a nessun corso\n");
+    	}
     	for(Corso c:corsistudente) {
     		txtrisultato.appendText(c+"\n");
     	}
@@ -123,6 +125,9 @@ public class FXMLController {
     		return;
     	}
     	List<Studente> studenticorso=model.getStudentiIscrittiAlCorso(nome);
+    	if(studenticorso.size()==0) {
+    		txtrisultato.appendText("nessuno studente iscritto al corso\n");
+    	}
     	for(Studente s:studenticorso) {
     		txtrisultato.appendText(s+"\n");
     	}
